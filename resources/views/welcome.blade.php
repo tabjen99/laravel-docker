@@ -84,7 +84,7 @@
                     Laravel
                 </div>
                 <div class="title m-b-md">
-                    _CI/CD Deployment Success
+                    _lastest_CI/CD Deployment Success
                 </div>
 
                 <div class="links">
