@@ -1,5 +1,4 @@
 FROM php:7.2-apache
-RUN ls "$PHP_INI_DIR/conf.d"
 
 COPY . /var/www/html
 RUN ls -la .
@@ -31,7 +30,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN a2enmod rewrite headers
 
 # 4. Start with base PHP config, then add extensions.
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+#RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 RUN docker-php-ext-install \
     bcmath \
