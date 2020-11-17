@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: container-0
-          image: 'swr.ap-southeast-1.myhuaweicloud.com/dev-hk/laravel-docker:10'
+          image: 'swr.ap-southeast-1.myhuaweicloud.com/dev-hk/laravel-docker:latest'
           env:
             - name: PAAS_APP_NAME
               value: laravel
