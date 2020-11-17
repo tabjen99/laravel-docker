@@ -1,5 +1,12 @@
 FROM php:7.4-apache
 
+# Install unzip utility and libs needed by zip PHP extension 
+RUN apt-get update && apt-get install -y \
+    zlib1g-dev \
+    libzip-dev \
+    unzip
+RUN docker-php-ext-install zip
+
 COPY . /var/www/html
 RUN ls -la .
 # 1. Install development packages and clean up apt cache.
