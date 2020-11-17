@@ -5,10 +5,10 @@ services:
     build:
       context: '.'
       args:
-        uid: ${UID}
+        uid: 1000
     container_name: laravel-app
     ports:
-      - 8000:80
+      - 8080:80
     environment:
       - APACHE_RUN_USER=#1000
       - APACHE_RUN_GROUP=#1000
