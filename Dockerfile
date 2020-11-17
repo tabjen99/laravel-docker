@@ -1,22 +1,22 @@
-FROM php:7.2-apache
+FROM php:7.4-apache
 
 COPY . /var/www/html
 RUN ls -la .
 # 1. Install development packages and clean up apt cache.
-RUN apt-get update && apt-get install -y \
-    curl \
-    g++ \
-    git \
-    libbz2-dev \
-    libfreetype6-dev \
-    libicu-dev \
-    libjpeg-dev \
-    libmcrypt-dev \
-    libpng-dev \
-    libreadline-dev \
-    sudo \
-    unzip \
-    zip \
+RUN apt-get update && apt-get install -y 
+   # curl \
+ RUN apt-get update && apt-get install -y g++ 
+    RUN apt-get update && apt-get install -y  git 
+    RUN apt-get update && apt-get install -y  libbz2-dev 
+    RUN apt-get update && apt-get install -y  libfreetype6-dev 
+    RUN apt-get update && apt-get install -y  libicu-dev 
+    RUN apt-get update && apt-get install -y  libjpeg-dev 
+    RUN apt-get update && apt-get install -y  libmcrypt-dev 
+    RUN apt-get update && apt-get install -y  libpng-dev 
+    RUN apt-get update && apt-get install -y  libreadline-dev 
+    RUN apt-get update && apt-get install -y  sudo \
+    #RUN apt-get update && apt-get install -y  unzip \
+    #zip \
  && rm -rf /var/lib/apt/lists/*
 
 # 2. Apache configs + document root.
@@ -32,16 +32,21 @@ RUN a2enmod rewrite headers
 # 4. Start with base PHP config, then add extensions.
 #RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-RUN docker-php-ext-install \
-    bcmath \
-    bz2 \
-    calendar \
-    iconv \
-    intl \
-    mbstring \
-    opcache \
-    pdo_mysql \
-    zip
+
+    RUN docker-php-ext-install bcmath 
+    RUN docker-php-ext-install bz2 
+    RUN docker-php-ext-install calendar 
+    RUN docker-php-ext-install iconv 
+    RUN docker-php-ext-install intl 
+    RUN docker-php-ext-install opcache 
+    RUN docker-php-ext-install pdo_mysql 
+    #RUN docker-php-ext-install zip 
+
+#install some base extensions
+#RUN apt-get install -y zip libzip-dev \
+#&& docker-php-ext-configure zip --with-libzip 
+  
+
 
 # 5. Composer.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
