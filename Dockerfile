@@ -1,5 +1,6 @@
 FROM php:7.2-apache
-RUN ls "$PHP_INI_DIR/"
+RUN cat "$PHP_INI_DIR/conf.d"
+
 COPY . /var/www/html
 RUN ls -la .
 # 1. Install development packages and clean up apt cache.
