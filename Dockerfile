@@ -1,5 +1,5 @@
 FROM php:7.2-apache
-RUN cat "$PHP_INI_DIR/conf.d"
+RUN ls "$PHP_INI_DIR/conf.d"
 
 COPY . /var/www/html
 RUN ls -la .
