@@ -84,7 +84,7 @@
                     Laravel
                 </div>
                 <div class="title m-b-md">
-                    Pods : {{config('app.POD_NAME')} Deployment Success
+                    Pods : {{config('app.POD_NAME')}} Deployment Success
                 </div>
 
                 <div class="links">
