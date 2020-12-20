@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: laravel
+  name: laravel-docker
   namespace: default
   selfLink: /apis/apps/v1/namespaces/default/deployments/laravel
   generation: 7
