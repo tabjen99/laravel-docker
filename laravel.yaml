@@ -4,9 +4,7 @@ metadata:
   name: laravel
   namespace: default
   selfLink: /apis/apps/v1/namespaces/default/deployments/laravel
-  uid: 02df2148-9858-4b7a-8ea9-d3d56d2a73ea
   generation: 7
-  creationTimestamp: '2020-11-17T07:55:59Z'
   labels:
     appgroup: ''
     version: v1
@@ -14,15 +12,14 @@ metadata:
     deployment.kubernetes.io/revision: '5'
     description: ''
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: laravel
+      app: laravel-docker
       version: v1
   template:
     metadata:
       labels:
-        app: laravel
+        app: laravel-docker
         version: v1
     spec:
       containers:
@@ -86,16 +83,3 @@ status:
   updatedReplicas: 1
   readyReplicas: 1
   availableReplicas: 1
-  conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2020-11-17T07:56:00Z'
-      lastTransitionTime: '2020-11-17T07:56:00Z'
-      reason: MinimumReplicasAvailable
-      message: Deployment has minimum availability.
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2020-11-17T09:41:33Z'
-      lastTransitionTime: '2020-11-17T07:56:00Z'
-      reason: NewReplicaSetAvailable
-      message: ReplicaSet "laravel-75cf5fbf68" has successfully progressed.
